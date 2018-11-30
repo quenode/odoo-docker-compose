@@ -1,0 +1,23 @@
+version: '2'
+services:
+   odoo:
+        image: odoo:12.0
+        depends_on:
+            - postgres
+        ports:
+            - "8069:8069"
+            - "8071:8071"
+        environment:
+            - HOST=postgres
+            - USER=odoo
+            - PASSWORD=odoo
+   postgres:
+        image: postgres:9.6
+        environment:
+            - POSTGRES_USER=odoo
+            - POSTGRES_PASSWORD=odoo
+        volumes:
+            - pg_data:/var/lib/postgresql/data
+        restart: unless-stopped
+volumes:
+    pg_data:
