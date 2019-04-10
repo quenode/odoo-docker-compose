@@ -11,11 +11,15 @@ services:
             - HOST=postgres
             - USER=odoo
             - PASSWORD=odoo
+        volumes:
+            - ./config:/etc/odoo
+            - ./repo:/opt/project
    postgres:
-        image: postgres:9.6
+        image: postgres:10
         environment:
-            - POSTGRES_USER=odoo
-            - POSTGRES_PASSWORD=odoo
+             - POSTGRES_DB=postgres
+             - POSTGRES_PASSWORD=odoo
+             - POSTGRES_USER=odoo
         volumes:
             - pg_data:/var/lib/postgresql/data
         restart: unless-stopped
