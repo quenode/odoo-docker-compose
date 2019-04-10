@@ -1,4 +1,4 @@
 Odoo
 ----
 
-Copy here enteprise modules odoo 12
+Copy here enterprise modules odoo 12 from private repo
